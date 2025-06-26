@@ -2,6 +2,8 @@
 
 Unleash your inner Jedi (or Sith!) with TriickSaber for the Meta Quest version of Beat Saber! This mod allows you to perform stylish spins and throws with your sabers, adding a new layer of flair and skill to your gameplay.
 
+Demo: https://replay.beatleader.com/?scoreId=24593428
+
 - **Current Version:** [0.1.0]
 - **Compatible Beat Saber Version:** [1.37]
 
