@@ -2,9 +2,9 @@
 
 Unleash your inner Jedi (or Sith!) with TriickSaber for the Meta Quest version of Beat Saber! This mod allows you to perform stylish spins and throws with your sabers, adding a new layer of flair and skill to your gameplay.
 
-Demo: https://replay.beatleader.com/?scoreId=24593428
+Demo: [https://replay.beatleader.com/?scoreId=24593428](https://replay.beatleader.com/?scoreId=25140068)
 
-- **Current Version:** [0.1.0]
+- **Current Version:** [0.2.0]
 - **Compatible Beat Saber Version:** [1.37]
 
 ![Cover Image](cover.png)
@@ -17,7 +17,7 @@ I'd love to keep improving TrickSaber when time allows. Contributions are welcom
 
 Also, special credit to the creators and maintainers of core libraries such as `beatsaber-hook`, `bs-cordl`, and `BSML`, etc. which streamlined the development process significantly.
 
-## Features: [0.1.0] (New)
+## Features: [0.1.0]
 *   **Dual Trick Modes:** Introducing two distinct modes, selectable in the settings menu.
     *   **Visual Only Mode (Default) (Tricks on Actual Sabers = OFF):** Perform tricks that seem purely cosmetic. Replay Notice: Tricks in this mode will appear in BeatLeader replays. However, viewing these replays with the Replay mod will cause a crash.
     *   **Gameplay Sabers Mode (Tricks on Actual Sabers = ON):** The classic experience where the actual saber performs the tricks. Score submission is **disabled** in this mode.
