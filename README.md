@@ -1,9 +1,11 @@
-# TrickSaber for Beat Saber (Meta Quest)
+# TriickSaber for Beat Saber (Meta Quest)
 
 Unleash your inner Jedi (or Sith!) with TriickSaber for the Meta Quest version of Beat Saber! This mod allows you to perform stylish spins and throws with your sabers, adding a new layer of flair and skill to your gameplay.
 
-- **Current Version:** [0.3.0]
-- **Compatible Beat Saber Version:** [1.37 (0.2.0), 1.40.8 (0.3.0)]
+Demo: [https://replay.beatleader.com/?scoreId=24593428](https://replay.beatleader.com/?scoreId=25140068)
+
+- **Current Version:** [0.2.0]
+- **Compatible Beat Saber Version:** [1.37]
 
 ![Cover Image](cover.png)
 
@@ -15,7 +17,13 @@ I'd love to keep improving TrickSaber when time allows. Contributions are welcom
 
 Also, special credit to the creators and maintainers of core libraries such as `beatsaber-hook`, `bs-cordl`, and `BSML`, etc. which streamlined the development process significantly.
 
-## Features
+## Features: [0.1.0]
+*   **Dual Trick Modes:** Introducing two distinct modes, selectable in the settings menu.
+    *   **Visual Only Mode (Default) (Tricks on Actual Sabers = OFF):** Perform tricks that seem purely cosmetic. Replay Notice: Tricks in this mode will appear in BeatLeader replays. However, viewing these replays with the Replay mod will cause a crash.
+    *   **Gameplay Sabers Mode (Tricks on Actual Sabers = ON):** The classic experience where the actual saber performs the tricks. Score submission is **disabled** in this mode.
+*   **Score Safety:** The mod now integrates with `bs-utils` to automatically disable and re-enable score submission based on which mode is selected, ensuring fair play.
+
+## Features: [0.0.1]
 
 *   **Saber Spins:**
     *   Activate saber spins using configurable controller buttons.
@@ -59,6 +67,7 @@ Also, special credit to the creators and maintainers of core libraries such as `
 
 *   **Global:**
     *   **Enable TrickSaber:** Master on/off switch for the mod.
+    *   **Tricks on Actual Sabers:** Choose between visual/actual tricks.
 *   **Per Saber (Left/Right):**
     *   **Spin Button:** Controller button to activate spin.
     *   **Spin Clockwise:** Toggles spin direction.
@@ -71,8 +80,6 @@ Also, special credit to the creators and maintainers of core libraries such as `
 ## Future Plans
 
 *   **Enhanced Throw Dynamics:** Improving the feel and physics of saber throws.
-*   **Visual-Only Spin/Throw:** Refining spins and throws to affect only the saber's visual model, leaving colliders unaffected for fair gameplay.
-*   **Score Safety:** Measures to disable score submission if trick actions affect saber physical colliders.
 
 ## Building from Source (For Developers)
 
@@ -95,8 +102,8 @@ This mod is built using C++ for the Quest version of Beat Saber (il2cpp).
 The resulting `.qmod` will be in the project's root directory.
 
 ## Credits
-*   **Core Libraries:** Immense thanks to the developers of `beatsaber-hook`, `bs-cordl`, `BSML`, `config-utils`, `custom-types`, and other foundational libraries that power Quest modding.
-*   **Initial Guide:** Followed from the [BS Modding Guide by danrouse](https://github.com/danrouse/beatsaber-quest-modding-guide).
+*   **Core Libraries:** Immense thanks to the developers of `beatsaber-hook`, `bs-cordl`, `BSML`, `config-utils`, `custom-types`, `bs-utils`, and other foundational libraries that power Quest modding.
+*   **Initial Guide:** Followed from danrouse's [BS Modding Guide](https://github.com/danrouse/beatsaber-quest-modding-guide).
 *   **Project Template:** Adapted from Tatenshi's [RandomSongPicker](https://github.com/Tatenshi/RandomSongPicker).
 *   **Concept Inspiration:** The idea for TrickSaber was inspired by existing PC/Quest TrickSaber mods (no code directly used or viewed).
 *   **AI Assistant:** Gemini 2.5 Pro provided development and documentation assistance. ChatGPT for cover image.
