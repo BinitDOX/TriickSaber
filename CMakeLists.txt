@@ -26,6 +26,8 @@ add_compile_definitions(MOD_ID=\"${MOD_ID}\")
 # recursively get all src files
 RECURSE_FILES(cpp_file_list ${SOURCE_DIR}/*.cpp)
 RECURSE_FILES(c_file_list ${SOURCE_DIR}/*.c)
+RECURSE_FILES(inline_hook_c ${EXTERN_DIR}/includes/beatsaber-hook/shared/inline-hook/*.c)
+RECURSE_FILES(inline_hook_cpp ${EXTERN_DIR}/includes/beatsaber-hook/shared/inline-hook/*.cpp)
 
 # add all src files to compile
 add_library(
@@ -33,6 +35,8 @@ add_library(
         SHARED
         ${cpp_file_list}
         ${c_file_list}
+        ${inline_hook_c}
+        ${inline_hook_cpp}
 )
 
 target_include_directories(${COMPILE_ID} PRIVATE .)
@@ -71,28 +75,22 @@ add_custom_command(TARGET ${COMPILE_ID} POST_BUILD
         COMMENT "Rename the stripped lib to regular"
         )
         foreach(so_file ${so_list})
-                message(STATUS "----------------------------------------------------")
-                message(STATUS "Processing dependency SO: ${so_file}")
+        cmake_path(GET so_file FILENAME file)
         
-                cmake_path(GET so_file FILENAME original_filename_with_ext)
-                message(STATUS "  Original Filename with Ext: ${original_filename_with_ext}")
+        add_custom_command(TARGET ${COMPILE_ID} POST_BUILD
+                COMMAND ${CMAKE_COMMAND} -E copy ${so_file} debug/${file}
+                COMMENT "Copy so files for ndk stack"
+        )
         
-                cmake_path(GET original_filename_with_ext STEM filename_stem)
-                message(STATUS "  Stem from cmake_path: ${filename_stem}")
-                
-                set(final_filename "${filename_stem}.so")
-                message(STATUS "  Final Filename for stripped output: ${final_filename}")
-                message(STATUS "  Output path for stripped: ${CMAKE_BINARY_DIR}/${final_filename}")
+        add_custom_command(TARGET ${COMPILE_ID} POST_BUILD
+                COMMAND ${CMAKE_STRIP} -g -S -d --strip-all ${so_file} -o ${file}
+                COMMENT "Strip debug symbols from the dependencies")
+        endforeach()
         
-                add_custom_command(TARGET ${COMPILE_ID} POST_BUILD
-                        COMMAND ${CMAKE_COMMAND} -E copy ${so_file} ${CMAKE_BINARY_DIR}/debug/${original_filename_with_ext}
-                        COMMAND_EXPAND_LISTS
-                        COMMENT "Copy original dependency ${original_filename_with_ext} to debug/ for ndk stack"
-                )
-                
-                add_custom_command(TARGET ${COMPILE_ID} POST_BUILD
-                        COMMAND ${CMAKE_STRIP} -g -S -d --strip-all ${so_file} -o ${CMAKE_BINARY_DIR}/${final_filename}
-                        COMMAND_EXPAND_LISTS
-                        COMMENT "Strip dependency ${original_filename_with_ext} to ${final_filename}")
-                message(STATUS "----------------------------------------------------")
+        foreach(a_file ${a_list})
+        cmake_path(GET a_file FILENAME file)
+        
+        add_custom_command(TARGET ${COMPILE_ID} POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy ${a_file} debug/${file}
+        COMMENT "Copy a files for ndk stack")
         endforeach()
