@@ -4,8 +4,8 @@ Unleash your inner Jedi (or Sith!) with TriickSaber for the Meta Quest version o
 
 Demo: [https://replay.beatleader.com/?scoreId=24593428](https://replay.beatleader.com/?scoreId=25140068)
 
-- **Current Version:** [0.2.0]
-- **Compatible Beat Saber Version:** [1.37]
+- **Current Version:** [0.3.0]
+- **Compatible Beat Saber Version:** [1.37 (0.2.0), 1.40.8 (0.3.0)]
 
 ![Cover Image](cover.png)
 
